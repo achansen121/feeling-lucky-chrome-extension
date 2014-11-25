@@ -1,0 +1,1 @@
+chrome.tabs.update(undefined,{"url":"https://www.google.com/im_feeling_lucky_extension/search"});window.close();

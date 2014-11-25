@@ -1,0 +1,33 @@
+{
+  "name": "Always Lucky Search",
+  "description": "This extension allows you to use I'm feeling lucky search and then click back to return to the existing results.",
+  "version": "0.0.0.2",
+  "permissions":[
+    "https://www.google.com/im_feeling_lucky_extension/*",
+    "http://www.google.com/im_feeling_lucky_extension/*",
+    "tabs"
+  ],
+  "commands":{
+
+    },
+  "manifest_version": 2,
+  "icons": {
+    "128": "ls.png"
+  },
+  "browser_action": {
+    "default_icon": "ls.png",
+    "default_popup": "/fwd_popup/popup.html"
+  },
+  "omnibox":{"keyword":"imfeelinglucky"},
+  "background": {
+    "persistent": true,
+    "scripts":["background.min.js"]
+  },
+  "content_scripts":[ {
+      "js": [ "search.min.js" ],
+      "css":["results.min.css"],
+      "matches": [ "*://www.google.com/im_feeling_lucky_extension/search*" ],
+      "run_at": "document_start"
+   }]
+  ,"web_accessible_resources": ["results.min.css"]
+}
